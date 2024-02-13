@@ -6,12 +6,13 @@ const NavLink: React.FC = () => {
   return (
     <>
       <LinkContainer>
-        <h1>Viper Club Nordic</h1>
-        <LinkItem to="/">Hem</LinkItem>
-        <LinkItem to="/event">Event</LinkItem>
-        <LinkItem to="/galleri">Galleri</LinkItem>
-        <LinkItem to="/kontakt">Kontakt</LinkItem>
-        <LinkItem to="/om">Om oss</LinkItem>
+        <LinkList>
+          <LinkItem to="/">Hem</LinkItem>
+          <LinkItem to="/event">Event</LinkItem>
+          <LinkItem to="/galleri">Galleri</LinkItem>
+          <LinkItem to="/kontakt">Kontakt</LinkItem>
+          <LinkItem to="/om">Om oss</LinkItem>
+        </LinkList>
       </LinkContainer>
     </>
   );
@@ -20,13 +21,29 @@ const NavLink: React.FC = () => {
 const LinkContainer = styled.div`
   font-family: Roboto;
   font-weight: 700;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: black;
   color: white;
   width: 100vw;
   padding: 20px;
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
+const LinkList = styled.ul`
+  list-style: none;
+  padding: 0;
+  width: 800px;
+  margin: 0 auto;
+  font-size: 20px;
+
+  li {
+    padding: 10px;
+    width: 110px;
+    height: 35px;
+    background: white;
+    border-radius: 8px;
+    float: left;
 `;
 
 const LinkItem = styled(RouterLink)`
