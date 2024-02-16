@@ -1,17 +1,41 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { IoCarSport } from "react-icons/io5";
+import { MdEvent, MdContactMail } from "react-icons/md";
+import { GrGallery } from "react-icons/gr";
+import { FaInfoCircle } from "react-icons/fa";
 
 const NavLink: React.FC = () => {
   return (
     <>
       <LinkContainer>
         <LinkList>
-          <LinkItem to="/">Hem</LinkItem>
-          <LinkItem to="/event">Event</LinkItem>
-          <LinkItem to="/galleri">Galleri</LinkItem>
-          <LinkItem to="/kontakt">Kontakt</LinkItem>
-          <LinkItem to="/om">Om oss</LinkItem>
+          <LinkItem to="/">
+            <IoCarSport />
+            <br />
+            Hem
+          </LinkItem>
+          <LinkItem to="/event">
+            <MdEvent />
+            <br />
+            Event
+          </LinkItem>
+          <LinkItem to="/galleri">
+            <GrGallery />
+            <br />
+            Galleri
+          </LinkItem>
+          <LinkItem to="/kontakt">
+            <MdContactMail />
+            <br />
+            Kontakt
+          </LinkItem>
+          <LinkItem to="/om">
+            <FaInfoCircle />
+            <br />
+            Om oss
+          </LinkItem>
         </LinkList>
       </LinkContainer>
     </>
@@ -22,8 +46,8 @@ const LinkContainer = styled.div`
   font-family: Roboto;
   font-weight: 700;
   color: white;
-  width: 100vw;
-  padding: 20px;
+  padding: 10px 0;
+  width: 100%;
   background: black;
   position: absolute;
   top: 0;
@@ -33,35 +57,39 @@ const LinkContainer = styled.div`
 const LinkList = styled.ul`
   list-style: none;
   padding: 0;
-  width: 800px;
-  margin: 0 auto;
-  font-size: 20px;
 
-  li {
-    padding: 10px;
-    width: 110px;
-    height: 35px;
-    background: white;
-    border-radius: 8px;
-    float: left;
+  margin: 0 auto;
+
+  @media (min-width: 500px) {
+    max-width: 800px;
+    font-size: 20px;
+  }
 `;
 
-const LinkItem = styled(RouterLink)`
-  margin: 10px;
+const LinkItem = styled(Link)`
   text-decoration: none;
+  color: #ffffff;
+  padding: 5px;
+
+  display: inline-block;
+  border-radius: 8px;
+  margin: 6px;
+
+  transition: ease-in;
+  transition-duration: 0.6s;
 
   &:hover {
+    color: #333;
+  }
+
+  &:active {
     color: white;
   }
 
-  &.active {
-    color: white;
+  @media (min-width: 500px) {
+    width: 110px;
+    padding: 3px;
   }
-`;
-
-const LinkItemClicked = styled(RouterLink)`
-  text-decoration: none;
-  color: white;
 `;
 
 export default NavLink;

@@ -1,6 +1,28 @@
 .page-container {
-  margin: 130px auto 0 auto;
-  width: 800px;
-  background: white;
-  border-radius: 8px;
+  width: 100%;
+  margin: 100px auto 0 auto;
+
+  @media (min-width: 500px) {
+    margin: 130px auto 0 auto;
+    width: 900px;
+    background: white;
+    border-radius: 8px;
+  }
+}
+
+.image-wrapper {
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensure images don't have default inline-block layout */
+  transition: transform 0.3s ease-out;
+}
+
+.image-wrapper.zoomed {
+  transform: scale(1.5); /* You can adjust the scaling factor as needed */
 }
